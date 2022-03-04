@@ -23,6 +23,6 @@ class SongController:
 
     @cached('last_song', data_formatter=bson_dumps, parse_json=True)
     def get_last_song(self):
-        requests = self.collection.find({"type": "last_song"})
+        requests = self.collection.find(sort=[('timestamp', pymongo.DESCENDING)]).limit(2)
 
-        return dict(list(requests)[0])
+        return dict(list(requests)[1])
