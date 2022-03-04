@@ -10,3 +10,6 @@ class Cache:
 
     def read_from_cache(self, key: str):
         return self.cache.get(key)
+
+    def clear_key(self, key: str):
+        return self.cache.delete(key)

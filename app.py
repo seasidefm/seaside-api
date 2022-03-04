@@ -1,5 +1,5 @@
 import json
-from flask import Flask
+from flask import Flask, request
 from dotenv import load_dotenv
 
 from services.locator import Locator
@@ -30,6 +30,15 @@ def get_video():
 @app.route("/health")
 def health():
     return "OK"
+
+
+@app.post("/songs/new")
+def new_song():
+    data = request.json
+    if data['song']:
+        return service_locator.songs.add_current_song(data['song'])
+    else:
+        return "`song` key is required!", 400
 
 
 @app.get("/songs/current")
