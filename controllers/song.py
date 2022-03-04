@@ -1,3 +1,5 @@
+import pymongo
+
 from cache.decorator import cached, clear_cache
 from database.get_db import get_db
 from shared.bson_to_json import bson_dumps
@@ -17,9 +19,7 @@ class SongController:
 
     @cached('current_song', data_formatter=bson_dumps, parse_json=True)
     def get_current_song(self):
-        requests = self.collection.find({"type": "current_song"})
-
-        return dict(list(requests)[0])
+        return self.collection.find_one(sort=[('timestamp', pymongo.DESCENDING)])
 
     @cached('last_song', data_formatter=bson_dumps, parse_json=True)
     def get_last_song(self):
