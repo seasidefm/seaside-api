@@ -1,6 +1,6 @@
 from controllers.fave import FaveController
 from controllers.song import SongController
-from services.song import SongService
+from shared.types import Song, Fave
 
 
 class FaveService:
@@ -14,8 +14,9 @@ class FaveService:
     def __init__(self):
         self.fave_controller = FaveController()
         self.song_controller = SongController()
-        self.song_service = SongService()
 
-    def save_song(self):
-        song = self.song_controller.get_current_song()
-        print(song)
+    def save_song(self, user: str):
+        song = Song.from_cache(self.song_controller.get_current_song())
+        fave = Fave(user, song.to_song_string())
+
+        return self.fave_controller.add_fave(fave=fave)

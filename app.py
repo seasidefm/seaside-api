@@ -51,10 +51,14 @@ def last_song():
     return service_locator.songs.last_song()
 
 
-@app.post("/faves/new")
+@app.post("/faves/current")
 def new_fave():
-    service_locator.faves.save_song()
-    return "OK"
+    data = request.json
+    if data.get('user') is not None:
+        result = service_locator.faves.save_song(data.get('user'))
+        return ("OK", 200) if result else (f"Already a favorite for {data.get('user')}", 409)
+    else:
+        return "`user` key is required to favorite current song", 400
 
 
 if __name__ == "__main__":
