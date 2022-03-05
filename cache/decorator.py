@@ -1,4 +1,5 @@
 import json
+from functools import wraps
 
 from cache.cache import Cache
 
@@ -25,6 +26,7 @@ def clear_cache(key: str):
         c = use_cache()
 
         # Wrap function
+        @wraps(func)
         def wrapper(*args, **kwargs):
             return_val = func(*args, **kwargs)
 
@@ -51,6 +53,7 @@ def cached(key: str, data_formatter=None, parse_json=False):
         c = use_cache()
 
         # Wrap function
+        @wraps(func)
         def wrapper(*args, **kwargs):
             cached_value = c.read_from_cache(key)
 
