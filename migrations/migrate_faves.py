@@ -1,6 +1,9 @@
+import datetime
+
 from dotenv import load_dotenv
 
 from database.get_db import get_db
+from shared.types import Fave
 
 load_dotenv()
 db = get_db()
@@ -9,12 +12,12 @@ db = get_db()
 def build_fave_objects(user: dict):
     fave_objects = []
     for song in user['songs']:
-        fave_objects.append({
-            "user": user['user'],
-            "twitch_id": user.get("twitch_id", ""),
-            "date": song['date'],
-            "song": song['song']
-        })
+        fave = Fave(
+            user.get("twitch_id"),
+            song['song'].strip(),
+            date=datetime.datetime.fromtimestamp(song.get('date'))
+        )
+        fave_objects.append(fave.to_dict())
     return fave_objects
 
 
@@ -32,8 +35,12 @@ if __name__ == "__main__":
     users_collection = db.get_collection("saved_songs")
     faves_collection = db.get_collection("favorites")
 
+    print("Dropping existing favorites collection")
+    # faves_collection.delete_many({})
+    print("...OK")
+
     print("Getting current user objects")
-    users = list(users_collection.find())
+    users = list(users_collection.find({"user": "duke_ferdinand"}))
     print("...OK")
 
     print("Formatting song objects")
