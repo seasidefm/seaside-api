@@ -2,6 +2,7 @@ import json
 from flask import Flask, request
 from dotenv import load_dotenv
 
+from controllers.token import token_required
 from services.locator import Locator
 
 app = Flask(__name__)
@@ -52,6 +53,7 @@ def last_song():
 
 
 @app.post("/faves/current")
+@token_required
 def new_fave():
     data = request.json
     if data.get('user') is not None:
