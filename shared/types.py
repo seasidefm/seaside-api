@@ -27,15 +27,11 @@ class Song:
         self.timestamp = date
 
     def to_dict(self):
-        d = {
+        return {
             "song": self.song,
             "artist": self.artist,
             "timestamp": self.timestamp
         }
-
-        print(d)
-
-        return d
 
     def to_song_string(self):
         return f"{self.artist} - {self.song}"
