@@ -50,7 +50,4 @@ class TokenController:
     def validate_token(self, token: str):
         data = self.collection.find_one({"token": token})
 
-        if data is None:
-            return data
-        else:
-            return dict(data)
+        return dict(data) if data is not None else data

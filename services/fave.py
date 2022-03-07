@@ -1,5 +1,6 @@
 from controllers.fave import FaveController
 from controllers.song import SongController
+from shared.bson_utils import bson_to_list
 from shared.types import Song, Fave
 
 
@@ -20,3 +21,6 @@ class FaveService:
         fave = Fave(user, song.to_song_string())
 
         return self.fave_controller.add_fave(fave=fave)
+
+    def get_songs(self, user_id: str):
+        return bson_to_list(list(self.fave_controller.get_faves_for_user(user_id)))
