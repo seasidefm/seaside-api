@@ -1,5 +1,7 @@
 flask[async]
+sentry-sdk[flask]
 pymongo[srv]
 python-dotenv~=0.19.2
 redis
 tqdm
+waitress

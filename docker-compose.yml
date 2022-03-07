@@ -5,3 +5,16 @@ services:
     restart: always
     ports:
       - "6379:6379"
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "4000:4000"
+    links:
+      - cache
+    environment:
+      IS_PRODUCTION: 1
+      REDIS_HOST: cache
+    env_file:
+      - .env
