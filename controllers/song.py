@@ -10,7 +10,7 @@ class SongController:
     collection_name = 'history'
 
     def __init__(self):
-        self.db = get_db()
+        self.db = get_db("song-controller")
         self.collection = self.db.get_collection(self.collection_name)
 
     @clear_cache('current_song')

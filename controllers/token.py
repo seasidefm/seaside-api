@@ -44,7 +44,7 @@ class TokenController:
     collection_name = 'tokens'
 
     def __init__(self):
-        db = get_db()
+        db = get_db("token-controller")
         self.collection = db.get_collection(self.collection_name)
 
     def validate_token(self, token: str):

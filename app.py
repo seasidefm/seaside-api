@@ -1,7 +1,6 @@
 import os
 import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
-from sentry_sdk.client import logger as SentryLogger
 from flask import Flask, request
 from dotenv import load_dotenv
 
@@ -53,6 +52,7 @@ def health():
 
 
 @app.post("/songs/new")
+@token_required
 def new_song():
     data = request.json
     try:

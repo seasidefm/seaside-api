@@ -6,7 +6,7 @@ from database.get_db import get_db
 from shared.types import Fave
 
 load_dotenv()
-db = get_db()
+db = get_db("migrator")
 
 
 def build_fave_objects(user: dict):

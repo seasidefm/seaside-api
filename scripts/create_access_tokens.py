@@ -7,7 +7,7 @@ deployments = ['botsuro', 'heat-level', 'song-watcher', 'heat-updater', 'testing
 
 if __name__ == '__main__':
     load_dotenv()
-    collection = get_db().get_collection('tokens')
+    collection = get_db("token-creator").get_collection('tokens')
 
     print(f"Creating access tokens for {len(deployments)} deployments")
     for dep in deployments:

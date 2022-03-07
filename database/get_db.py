@@ -18,12 +18,12 @@ class Database:
 db = None
 
 
-def get_db():
+def get_db(service: str):
     global db
     if db is None:
-        print('Database connection is None, initializing...')
+        print(f'[{service}] Database connection is None, initializing...')
         db = Database()
         return db.instance()
     else:
-        print('Re-using existing database connection')
+        print(f'[{service}] Reusing existing database connection')
         return db.instance()
