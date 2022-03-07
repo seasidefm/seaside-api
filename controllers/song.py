@@ -2,7 +2,7 @@ import pymongo
 
 from cache.decorator import cached, clear_cache
 from database.get_db import get_db
-from shared.bson_to_json import bson_dumps
+from shared.bson_utils import bson_dumps
 from shared.types import Song
 
 

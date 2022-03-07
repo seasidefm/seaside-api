@@ -16,7 +16,7 @@ class FaveService:
         self.song_controller = SongController()
 
     def save_song(self, user: str):
-        song = Song.from_cache(self.song_controller.get_current_song())
+        song = Song.from_bson(self.song_controller.get_current_song())
         fave = Fave(user, song.to_song_string())
 
         return self.fave_controller.add_fave(fave=fave)

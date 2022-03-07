@@ -61,7 +61,7 @@ def new_song():
             return AppResult(
                 message=f"Added {data['song']} to history",
                 data=result
-            )
+            ).response_tuple()
         else:
             return AppError(
                 message="Song key is missing or incorrect format",
@@ -80,7 +80,7 @@ def new_song():
 def current_song():
     return AppResult(
         message="Current song",
-        data=service_locator.songs.current_song()
+        data=service_locator.songs.current_song().to_dict()
     ).response_tuple()
 
 
@@ -88,7 +88,7 @@ def current_song():
 def last_song():
     return AppResult(
         message="Last song",
-        data=service_locator.songs.last_song()
+        data=service_locator.songs.last_song().to_dict()
     ).response_tuple()
 
 

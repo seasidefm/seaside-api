@@ -14,7 +14,7 @@ class SongService:
         return True
 
     def current_song(self):
-        return self.song_collection.get_current_song()
+        return Song.from_bson(self.song_collection.get_current_song())
 
     def last_song(self):
-        return self.song_collection.get_last_song()
+        return Song.from_bson(self.song_collection.get_last_song())

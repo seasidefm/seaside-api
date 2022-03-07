@@ -20,23 +20,27 @@ class Fave:
 
 
 class Song:
-    def __init__(self, song: str, date=datetime.now().isoformat()):
+    def __init__(self, song: str, date=datetime.now()):
         artist, song_title = song.split(' - ')
         self.song = song_title
         self.artist = artist
         self.timestamp = date
 
     def to_dict(self):
-        return {
+        d = {
             "song": self.song,
             "artist": self.artist,
             "timestamp": self.timestamp
         }
 
+        print(d)
+
+        return d
+
     def to_song_string(self):
         return f"{self.artist} - {self.song}"
 
     @staticmethod
-    def from_cache(cached: dict):
+    def from_bson(cached: dict):
         print(cached.get('timestamp')['$date'])
         return Song(f"{cached.get('artist')} - {cached.get('song')}", date=cached.get('timestamp')['$date'])
