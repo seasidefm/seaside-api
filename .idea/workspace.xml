@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f9d87f1-ca10-4352-8290-e9c63af5b194" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/controllers/superfave.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/superfave.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/fave.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/fave.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/fave.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/fave.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/locator.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/locator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +129,7 @@
       <option name="presentableId" value="Default" />
       <updated>1646499357460</updated>
       <workItem from="1646499358589" duration="20826000" />
-      <workItem from="1646691990831" duration="6599000" />
+      <workItem from="1646691990831" duration="7360000" />
     </task>
     <task id="LOCAL-00001" summary="Add better wrapping for cache decorators">
       <created>1646504955896</created>

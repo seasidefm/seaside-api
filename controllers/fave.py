@@ -11,7 +11,7 @@ class FaveController:
         self.collection = db.get_collection(self.collection_name)
 
     def add_fave(self, fave: Fave) -> bool:
-        existing_fave = self.collection.find_one({"twitch_id": fave.user, "song": fave.song})
+        existing_fave = self.collection.find_one({"user_id": fave.user, "song": fave.song})
 
         if existing_fave is not None:
             return False

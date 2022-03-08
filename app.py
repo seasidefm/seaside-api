@@ -125,6 +125,29 @@ def new_fave():
         ).response_tuple()
 
 
+@app.post("/faves/superfave/current")
+def new_superfave():
+    data = request.json
+    if data.get('user_id') is not None:
+        result = service_locator.superfaves.save_song(data.get('user_id'))
+
+        formatted = AppResult(
+            message="Added current song as superfave",
+        ) if result else AppError(
+            message="Already user superfave",
+            error=f"Already a superfave for {data.get('user')}",
+            code=409
+        )
+
+        return formatted.response_tuple()
+    else:
+        return AppError(
+            message="User key is missing or wrong format",
+            error="`user` key is required to super-fave current song",
+            code=400
+        ).response_tuple()
+
+
 if __name__ == "__main__":
     print("Starting SeasideFM Beta API...")
     if os.environ.get('IS_PRODUCTION') is not None:
