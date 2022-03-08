@@ -106,49 +106,62 @@ def faves_for_user():
     ).response_tuple()
 
 
-@app.post("/faves/current")
+@app.post("/faves")
 @token_required
 def new_fave():
     data = request.json
-    if data.get('user') is not None:
-        result = service_locator.faves.save_song(data.get('user'))
+    print(request)
+
+    user_id = data.get('user_id')
+    song = data.get('song')
+    if user_id:
+        result =\
+            service_locator.faves.save_last(user_id)\
+            if song == "last" else\
+            service_locator.faves.save_song(user_id)
 
         formatted = AppResult(
             message="Added current song as favorite",
         ) if result else AppError(
             message="Already user favorite",
-            error=f"Already a favorite for {data.get('user')}",
+            error=f"Already a favorite for {user_id}",
             code=409
         )
 
         return formatted.response_tuple()
     else:
         return AppError(
-            message="User key is missing or wrong format",
-            error="`user` key is required to favorite current song",
+            message="User ID key is missing or wrong format",
+            error="`user_id` key is required to favorite current song",
             code=400
         ).response_tuple()
 
 
-@app.post("/faves/superfave/current")
+@app.post("/faves/superfave")
 def new_superfave():
     data = request.json
-    if data.get('user_id') is not None:
-        result = service_locator.superfaves.save_song(data.get('user_id'))
+
+    user_id = data.get('user_id')
+    song = data.get('song')
+    if user_id:
+        result =\
+            service_locator.superfaves.save_last(user_id) \
+            if song == "last" else \
+            service_locator.superfaves.save_song(user_id)
 
         formatted = AppResult(
             message="Added current song as superfave",
         ) if result else AppError(
             message="Already user superfave",
-            error=f"Already a superfave for {data.get('user')}",
+            error=f"Already a superfave for {user_id}",
             code=409
         )
 
         return formatted.response_tuple()
     else:
         return AppError(
-            message="User key is missing or wrong format",
-            error="`user` key is required to super-fave current song",
+            message="User ID key is missing or wrong format",
+            error="`user_id` key is required to super-fave current song",
             code=400
         ).response_tuple()
 

@@ -25,5 +25,11 @@ class FaveService:
 
         return self.fave_controller.add_fave(fave=fave)
 
+    def save_last(self, user: str):
+        song = Song.from_bson(self.song_controller.get_last_song())
+        fave = Fave(user, song.to_song_string())
+
+        return self.fave_controller.add_fave(fave=fave)
+
     def get_songs(self, user_id: str, limit=0):
         return bson_to_list(list(self.fave_controller.get_faves_for_user(user_id, limit=limit)))
