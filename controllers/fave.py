@@ -1,4 +1,6 @@
 import pymongo
+
+from cache.decorator import clear_cache
 from database.get_db import get_db
 from shared.types import Fave
 
@@ -10,6 +12,10 @@ class FaveController:
         db = get_db("fave-controller")
         self.collection = db.get_collection(self.collection_name)
 
+    def get_count(self, song: str) -> int:
+        return self.collection.count_documents({"song": song})
+
+    @clear_cache('heat')
     def add_fave(self, fave: Fave) -> bool:
         existing_fave = self.collection.find_one({"user_id": fave.user, "song": fave.song})
 

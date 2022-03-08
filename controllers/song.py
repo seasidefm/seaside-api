@@ -13,7 +13,7 @@ class SongController:
         self.db = get_db("song-controller")
         self.collection = self.db.get_collection(self.collection_name)
 
-    @clear_cache('current_song')
+    @clear_cache(['current_song', 'heat'])
     def add_to_history(self, song: Song):
         return self.collection.insert_one(song.to_dict())
 

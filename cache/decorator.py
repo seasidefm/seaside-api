@@ -1,5 +1,6 @@
 import json
 from functools import wraps
+from typing import Union
 
 from cache.cache import Cache
 
@@ -15,7 +16,7 @@ def use_cache():
     return cache
 
 
-def clear_cache(key: str):
+def clear_cache(key: Union[str, list[str]]):
     """
     Clear the cache at given key on a successful return from wrapped function
 
@@ -31,7 +32,11 @@ def clear_cache(key: str):
             return_val = func(*args, **kwargs)
 
             # Clear cached value if execution makes it this far
-            c.clear_key(key)
+            if isinstance(key, list):
+                for cache_name in key:
+                    c.clear_key(cache_name)
+            else:
+                c.clear_key(key)
 
             return return_val
 
@@ -61,8 +66,7 @@ def cached(key: str, data_formatter=None, parse_json=False):
                 # call passed function with expected args
                 new_value = func(*args, **kwargs)
                 # format according to passed args
-                formatted = data_formatter(new_value) if data_formatter is not None else new_value
-                print(formatted)
+                formatted = data_formatter(new_value) if data_formatter else new_value
 
                 # Store formatted data
                 c.store_in_cache(key, formatted)
