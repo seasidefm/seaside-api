@@ -14,15 +14,20 @@ app = Flask(__name__)
 # ==========================
 
 load_dotenv()
-sentry_sdk.init(
-    dsn="https://f50589cc78d24d5a9e3c2e2466aa72b5@o1076291.ingest.sentry.io/6247312",
-    integrations=[FlaskIntegration()],
+sentry_dsn = os.environ.get('SENTRY_DSN')
+if sentry_dsn:
+    sentry_sdk.init(
+        dsn=sentry_dsn,
+        integrations=[FlaskIntegration()],
+        environment="production",
+        # Set traces_sample_rate to 1.0 to capture 100%
+        # of transactions for performance monitoring.
+        # We recommend adjusting this value in production.
+        traces_sample_rate=1.0
+    )
+else:
+    print("No SENTRY_DSN found in env, skipping setup")
 
-    # Set traces_sample_rate to 1.0 to capture 100%
-    # of transactions for performance monitoring.
-    # We recommend adjusting this value in production.
-    traces_sample_rate=1.0
-)
 service_locator = Locator()
 
 # ==========================

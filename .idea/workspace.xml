@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f9d87f1-ca10-4352-8290-e9c63af5b194" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/kubernetes/api-ddns.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/api.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kubernetes/example-secret.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/superfave.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/superfave.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/superfave.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/superfave.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +47,10 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="KubernetesApiPersistence">
+    <option name="context" value="default" />
+    <option name="namespace" value="seasidefm" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -55,12 +63,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/kubernetes" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="settings.editor.selected.configurable" value="com.intellij.kubernetes.view.ui.settings.KubernetesViewConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="\\wsl$\Debian\home\doug\code\projects\beta-api\kubernetes" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.beta-api">
     <configuration name="beta-api" type="PythonConfigurationType" factoryName="Python">
@@ -126,7 +139,8 @@
       <option name="presentableId" value="Default" />
       <updated>1646499357460</updated>
       <workItem from="1646499358589" duration="20826000" />
-      <workItem from="1646691990831" duration="9750000" />
+      <workItem from="1646691990831" duration="10511000" />
+      <workItem from="1646704680543" duration="4137000" />
     </task>
     <task id="LOCAL-00001" summary="Add better wrapping for cache decorators">
       <created>1646504955896</created>
@@ -182,6 +196,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/beta_api$create_access_tokens.coverage" NAME="create_access_tokens Coverage Results" MODIFIED="1646515483686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
-    <SUITE FILE_PATH="coverage/beta_api$beta_api.coverage" NAME="beta-api Coverage Results" MODIFIED="1646703884459" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/beta_api$beta_api.coverage" NAME="beta-api Coverage Results" MODIFIED="1646703909346" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

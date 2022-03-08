@@ -1,0 +1,116 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: seasidefm
+  name: seaside-cache
+  labels:
+    app: seaside-cache
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: seaside-cache
+  template:
+    metadata:
+      labels:
+        app: seaside-cache
+    spec:
+      containers:
+        - name: seaside-cache
+          image: redis
+          ports:
+            - containerPort: 6379
+          imagePullPolicy: IfNotPresent
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: seasidefm
+  name: seaside-cache
+spec:
+  selector:
+    app: seaside-cache
+  ports:
+    - name: redis-port
+      port: 6379
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: seasidefm
+  name: seaside-api
+  labels:
+    app: seaside-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: seaside-api
+  template:
+    metadata:
+      labels:
+        app: seaside-api
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: seaside-api
+          image: registry.dougflynn.dev/seaside-api
+          ports:
+            - containerPort: 4000
+          imagePullPolicy: Always
+          env:
+            - name: MONGO_CONNECTION
+              valueFrom:
+                secretKeyRef:
+                  name: api-secret
+                  key: MONGO_CONNECTION
+            - name: SENTRY_DSN
+              valueFrom:
+                secretKeyRef:
+                  name: api-secret
+                  key: SENTRY_DSN
+            - name: IS_PRODUCTION
+              value: '1'
+            - name: REDIS_HOST
+              value: seaside-cache
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: seasidefm
+  name: seaside-api
+spec:
+  selector:
+    app: seaside-api
+  ports:
+    - name: web-port
+      port: 80
+      targetPort: 4000
+---
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  namespace: seasidefm
+  name: seaside-api-entrypoint
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
+spec:
+  rules:
+    - host: api.seaside.fm
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: seaside-api
+                port:
+                  number: 80
+  tls:
+    - secretName: seaside-api-tls
+      hosts:
+        - api.seaside.fm
