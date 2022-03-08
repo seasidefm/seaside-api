@@ -21,7 +21,6 @@ class FaveController:
             return True
 
     def get_faves_for_user(self, user_id: str, sort=pymongo.DESCENDING, limit=None):
-        print(f"fetching faves for {user_id}")
         return self.collection.find(
             {"user_id": user_id},
             sort=[('timestamp', sort)]
