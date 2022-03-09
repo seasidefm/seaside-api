@@ -179,6 +179,10 @@ if __name__ == "__main__":
     print("Starting SeasideFM Beta API...")
     if os.environ.get('IS_PRODUCTION') is not None:
         from waitress import serve
+        import logging
+        logger = logging.getLogger('waitress')
+        logger.setLevel(logging.INFO)
+
         serve(app=app, port=4000)
     else:
         app.run(host="0.0.0.0", port=4000, debug=True)
