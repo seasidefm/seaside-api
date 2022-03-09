@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from controllers.token import token_required
 from services.locator import Locator
 from shared.structures import AppError, AppResult
+from utils.heat_setter import update_heat
 
 app = Flask(__name__)
 
@@ -58,6 +59,7 @@ def health():
 
 @app.post("/songs/new")
 @token_required
+@update_heat
 def new_song():
     data = request.json
     try:
@@ -108,9 +110,9 @@ def faves_for_user():
 
 @app.post("/faves")
 @token_required
+@update_heat
 def new_fave():
     data = request.json
-    print(request)
 
     user_id = data.get('user_id')
     song = data.get('song')
@@ -138,6 +140,8 @@ def new_fave():
 
 
 @app.post("/faves/superfave")
+@token_required
+@update_heat
 def new_superfave():
     data = request.json
 
@@ -168,7 +172,6 @@ def new_superfave():
 
 @app.get('/heat')
 def get_heat():
-    print(service_locator.heat.get_current_heat())
     return AppResult(
         message="Current heat level",
         data=service_locator.heat.get_current_heat()

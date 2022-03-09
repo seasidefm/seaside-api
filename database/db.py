@@ -68,7 +68,7 @@ class DB:
         results = list(user_list)
         if len(results) == 0:
             print(f"User list not found for {user}, creating...")
-            res = fave_songs.insert_one({
+            fave_songs.insert_one({
                 "user": user['user'],
                 "twitch_id": user['user_id'],
                 "songs": [{
@@ -76,7 +76,6 @@ class DB:
                     "date": int(time.time())
                 }]
             })
-            print(res)
             return "created"
         else:
             fave_data = results[0]

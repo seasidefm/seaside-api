@@ -1,6 +1,6 @@
 import pymongo
 
-from cache.decorator import clear_cache
+from cache.cache_decorator import clear_cache
 from database.get_db import get_db
 from shared.types import Fave
 

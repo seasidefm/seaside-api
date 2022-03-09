@@ -38,5 +38,4 @@ class Song:
 
     @staticmethod
     def from_bson(cached: dict):
-        print(cached.get('timestamp')['$date'])
         return Song(f"{cached.get('artist')} - {cached.get('song')}", date=cached.get('timestamp')['$date'])

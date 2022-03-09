@@ -1,6 +1,6 @@
 import pymongo
 
-from cache.decorator import cached, clear_cache
+from cache.cache_decorator import cached, clear_cache
 from database.get_db import get_db
 from shared.bson_utils import bson_dumps
 from shared.types import Song
@@ -15,6 +15,7 @@ class SongController:
 
     @clear_cache(['current_song', 'heat'])
     def add_to_history(self, song: Song):
+        print(f'saving: {song.to_song_string()}')
         return self.collection.insert_one(song.to_dict())
 
     @cached('current_song', data_formatter=bson_dumps, parse_json=True)

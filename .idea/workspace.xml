@@ -4,9 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f9d87f1-ca10-4352-8290-e9c63af5b194" name="Changes" comment="">
+    <list default="true" id="8f9d87f1-ca10-4352-8290-e9c63af5b194" name="Changes" comment="Add logging to prod server">
+      <change afterPath="$PROJECT_DIR$/services/mqtt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/heat_setter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/decorator.py" beforeDir="false" afterPath="$PROJECT_DIR$/cache/cache_decorator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/fave.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/fave.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/song.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/song.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/token.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/token.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/api.yml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/api.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/heat.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/heat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/types.py" beforeDir="false" afterPath="$PROJECT_DIR$/shared/types.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +70,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../botsuro-twitch" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -136,7 +148,7 @@
       <workItem from="1646499358589" duration="20826000" />
       <workItem from="1646691990831" duration="10511000" />
       <workItem from="1646704680543" duration="8951000" />
-      <workItem from="1646785152663" duration="64000" />
+      <workItem from="1646785152663" duration="8191000" />
     </task>
     <task id="LOCAL-00001" summary="Add better wrapping for cache decorators">
       <created>1646504955896</created>
@@ -166,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646505118085</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add logging to prod server">
+      <created>1646785270999</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1646785270999</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,10 +207,11 @@
     <MESSAGE value="add project files" />
     <MESSAGE value="Add fave ingest route based on user id" />
     <MESSAGE value="Add favorite typing to migration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add favorite typing to migration" />
+    <MESSAGE value="Add logging to prod server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add logging to prod server" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/beta_api$create_access_tokens.coverage" NAME="create_access_tokens Coverage Results" MODIFIED="1646515483686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
-    <SUITE FILE_PATH="coverage/beta_api$beta_api.coverage" NAME="beta-api Coverage Results" MODIFIED="1646757097661" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/beta_api$beta_api.coverage" NAME="beta-api Coverage Results" MODIFIED="1646791456114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

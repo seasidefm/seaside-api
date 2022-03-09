@@ -3,7 +3,7 @@ from functools import wraps
 
 from flask import request
 
-from cache.decorator import use_cache
+from cache.cache_decorator import use_cache
 from database.get_db import get_db
 
 token_error = {

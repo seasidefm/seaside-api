@@ -1,6 +1,6 @@
 import json
 
-from cache.decorator import cache, cached
+from cache.cache_decorator import cache, cached
 from services.fave import FaveService
 from services.song import SongService
 from services.superfave import SuperFaveService

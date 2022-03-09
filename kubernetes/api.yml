@@ -22,6 +22,9 @@ spec:
           ports:
             - containerPort: 6379
           imagePullPolicy: IfNotPresent
+          env:
+            - name: TZ
+              value: America/New_York
 ---
 apiVersion: v1
 kind: Service
@@ -61,6 +64,8 @@ spec:
             - containerPort: 4000
           imagePullPolicy: Always
           env:
+            - name: TZ
+              value: America/New_York
             - name: MONGO_CONNECTION
               valueFrom:
                 secretKeyRef:
