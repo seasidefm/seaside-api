@@ -13,7 +13,8 @@ class SongController:
         self.db = get_db("song-controller")
         self.collection = self.db.get_collection(self.collection_name)
 
-    @clear_cache(['current_song', 'heat'])
+    # This should clear basically anything tied to cached songs
+    @clear_cache(['current_song', 'last_song', 'heat'])
     def add_to_history(self, song: Song):
         print(f'saving: {song.to_song_string()}')
         return self.collection.insert_one(song.to_dict())
