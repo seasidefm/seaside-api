@@ -31,5 +31,10 @@ class FaveService:
 
         return self.fave_controller.add_fave(fave=fave)
 
+    def delete_fave(self, fave_id: str):
+        result = self.fave_controller.del_fave(fave_id)
+
+        return result.deleted_count > 0
+
     def get_songs(self, user_id: str, limit=0):
         return bson_to_list(list(self.fave_controller.get_faves_for_user(user_id, limit=limit)))

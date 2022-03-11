@@ -26,6 +26,11 @@ class FaveController:
             self.collection.insert_one(fave.to_dict())
             return True
 
+    def del_fave(self, fave_id: str):
+        return self.collection.delete_one({
+            "_id": fave_id
+        })
+
     def get_faves_for_user(self, user_id: str, sort=pymongo.DESCENDING, limit=None):
         return self.collection.find(
             {"user_id": user_id},

@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8f9d87f1-ca10-4352-8290-e9c63af5b194" name="Changes" comment="Add logging to prod server">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/migrate_faves.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/migrate_faves.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/fave.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/fave.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/fave.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/fave.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +72,7 @@
       <recent name="\\wsl$\Debian\home\doug\code\projects\beta-api\kubernetes" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.migrate_faves">
+  <component name="RunManager" selected="Python.beta-api">
     <configuration name="deploy" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="deploy" workingDirectory="" arguments="">
         <envs />
@@ -171,7 +173,7 @@
       <workItem from="1646785152663" duration="9617000" />
       <workItem from="1646872750976" duration="2573000" />
       <workItem from="1646930236484" duration="224000" />
-      <workItem from="1646961349911" duration="2808000" />
+      <workItem from="1646961349911" duration="4423000" />
     </task>
     <task id="LOCAL-00001" summary="Add better wrapping for cache decorators">
       <created>1646504955896</created>
@@ -235,7 +237,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/beta_api$create_access_tokens.coverage" NAME="create_access_tokens Coverage Results" MODIFIED="1646515483686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
-    <SUITE FILE_PATH="coverage/beta_api$beta_api.coverage" NAME="beta-api Coverage Results" MODIFIED="1646791456114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/beta_api$migrate_faves.coverage" NAME="migrate_faves Coverage Results" MODIFIED="1646966219133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/migrations" />
+    <SUITE FILE_PATH="coverage/beta_api$beta_api.coverage" NAME="beta-api Coverage Results" MODIFIED="1646969490207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/beta_api$migrate_faves.coverage" NAME="migrate_faves Coverage Results" MODIFIED="1646966244719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/migrations" />
   </component>
 </project>
