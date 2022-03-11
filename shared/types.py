@@ -6,10 +6,10 @@ UserPayload = NewType('UserPayload', dict)
 
 
 class Fave:
-    def __init__(self, user: str, song: str, date=datetime.now()):
+    def __init__(self, user: str, song: str, date=None):
         self.user = user
         self.song = song
-        self.timestamp = date
+        self.timestamp = date or datetime.now()
 
     def to_dict(self):
         return {
@@ -20,11 +20,11 @@ class Fave:
 
 
 class Song:
-    def __init__(self, song: str, date=datetime.now()):
+    def __init__(self, song: str, date=None):
         artist, song_title = song.split(' - ')
         self.song = song_title
         self.artist = artist
-        self.timestamp = date
+        self.timestamp = date or datetime.now()
 
     def to_dict(self):
         return {
