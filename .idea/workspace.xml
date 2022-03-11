@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f9d87f1-ca10-4352-8290-e9c63af5b194" name="Changes" comment="Add logging to prod server">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/song.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/song.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +69,13 @@
       <recent name="\\wsl$\Debian\home\doug\code\projects\beta-api\kubernetes" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.beta-api">
+  <component name="RunManager" selected="Makefile Target.deploy">
+    <configuration name="deploy" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="deploy" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
     <configuration name="beta-api" type="PythonConfigurationType" factoryName="Python">
       <module name="beta-api" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -118,9 +123,11 @@
     <list>
       <item itemvalue="Python.beta-api" />
       <item itemvalue="Python.create_access_tokens" />
+      <item itemvalue="Makefile Target.deploy" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Makefile Target.deploy" />
         <item itemvalue="Python.create_access_tokens" />
       </list>
     </recent_temporary>
@@ -139,7 +146,7 @@
       <workItem from="1646785152663" duration="9617000" />
       <workItem from="1646872750976" duration="2573000" />
       <workItem from="1646930236484" duration="224000" />
-      <workItem from="1646961349911" duration="1541000" />
+      <workItem from="1646961349911" duration="1644000" />
     </task>
     <task id="LOCAL-00001" summary="Add better wrapping for cache decorators">
       <created>1646504955896</created>
