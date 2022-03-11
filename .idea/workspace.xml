@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f9d87f1-ca10-4352-8290-e9c63af5b194" name="Changes" comment="Add logging to prod server">
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/migrate_faves.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/migrate_faves.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +70,7 @@
       <recent name="\\wsl$\Debian\home\doug\code\projects\beta-api\kubernetes" />
     </key>
   </component>
-  <component name="RunManager" selected="Makefile Target.deploy">
+  <component name="RunManager" selected="Python.migrate_faves">
     <configuration name="deploy" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="deploy" workingDirectory="" arguments="">
         <envs />
@@ -120,13 +121,37 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="migrate_faves" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="beta-api" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/migrations" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/migrations/migrate_faves.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.beta-api" />
       <item itemvalue="Python.create_access_tokens" />
       <item itemvalue="Makefile Target.deploy" />
+      <item itemvalue="Python.migrate_faves" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.migrate_faves" />
         <item itemvalue="Makefile Target.deploy" />
         <item itemvalue="Python.create_access_tokens" />
       </list>
@@ -146,7 +171,7 @@
       <workItem from="1646785152663" duration="9617000" />
       <workItem from="1646872750976" duration="2573000" />
       <workItem from="1646930236484" duration="224000" />
-      <workItem from="1646961349911" duration="1644000" />
+      <workItem from="1646961349911" duration="2808000" />
     </task>
     <task id="LOCAL-00001" summary="Add better wrapping for cache decorators">
       <created>1646504955896</created>
@@ -211,5 +236,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/beta_api$create_access_tokens.coverage" NAME="create_access_tokens Coverage Results" MODIFIED="1646515483686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/beta_api$beta_api.coverage" NAME="beta-api Coverage Results" MODIFIED="1646791456114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/beta_api$migrate_faves.coverage" NAME="migrate_faves Coverage Results" MODIFIED="1646966219133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/migrations" />
   </component>
 </project>
