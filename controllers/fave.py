@@ -1,3 +1,4 @@
+import bson
 import pymongo
 
 from cache.cache_decorator import clear_cache
@@ -28,7 +29,7 @@ class FaveController:
 
     def del_fave(self, fave_id: str):
         return self.collection.delete_one({
-            "_id": fave_id
+            "_id": bson.ObjectId(fave_id)
         })
 
     def get_faves_for_user(self, user_id: str, sort=pymongo.DESCENDING, limit=None):

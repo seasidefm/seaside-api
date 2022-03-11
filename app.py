@@ -108,6 +108,15 @@ def faves_for_user():
     ).response_tuple()
 
 
+@app.get("/faves/superfaves")
+def superfaves_for_user():
+    user = request.args.get('user_id')
+    return AppResult(
+        message="User's superfave songs",
+        data=service_locator.superfaves.get_songs(user)
+    ).response_tuple()
+
+
 @app.delete("/faves")
 @token_required
 @update_heat
