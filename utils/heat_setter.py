@@ -1,4 +1,3 @@
-import json
 from functools import wraps
 from threading import Thread
 
