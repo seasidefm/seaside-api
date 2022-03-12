@@ -64,38 +64,6 @@ def health():
     ).response_tuple()
 
 
-@app.delete("/superfaves")
-@token_required
-@update_heat
-def delete_superfave():
-    data = request.json
-    fave_id = data.get('fave_id')
-
-    response = None
-    if fave_id:
-        result = service_locator.superfaves.delete_fave(fave_id)
-        if result:
-            response = AppResult(message="Superfave successfully deleted", data={
-                "data": True
-            })
-        else:
-            response = AppError(
-                message="Something went wrong deleting superface!",
-                error="Could not delete superfave, please check ID"
-            )
-    else:
-        response = AppError(
-            message="Fave ID is missing from request body",
-            error="`fave_id` is missing or improper format",
-            code=400
-        )
-
-    return response.response_tuple()
-
-
-
-
-
 @app.post("/faves/superfave")
 @token_required
 @update_heat
