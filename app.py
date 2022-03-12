@@ -106,15 +106,6 @@ def last_song():
     ).response_tuple()
 
 
-@app.get("/faves/user")
-def faves_for_user():
-    user = request.args.get('user_id')
-    return AppResult(
-        message="User's favorite songs",
-        data=service_locator.faves.get_songs(user)
-    ).response_tuple()
-
-
 @app.get("/superfaves")
 def superfaves_for_user():
     user = request.args.get('user_id')
