@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f9d87f1-ca10-4352-8290-e9c63af5b194" name="Changes" comment="Add logging to prod server">
+      <change beforePath="$PROJECT_DIR$/.example.env" beforeDir="false" afterPath="$PROJECT_DIR$/.example.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +45,9 @@
   <component name="KubernetesApiPersistence">
     <option name="context" value="default" />
     <option name="namespace" value="seasidefm" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="753t4qa6" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -144,15 +147,14 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Makefile Target.deploy" />
       <item itemvalue="Python.beta-api" />
       <item itemvalue="Python.create_access_tokens" />
-      <item itemvalue="Makefile Target.deploy" />
       <item itemvalue="Python.migrate_faves" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.migrate_faves" />
-        <item itemvalue="Makefile Target.deploy" />
         <item itemvalue="Python.create_access_tokens" />
       </list>
     </recent_temporary>
@@ -172,6 +174,8 @@
       <workItem from="1646872750976" duration="2573000" />
       <workItem from="1646930236484" duration="224000" />
       <workItem from="1646961349911" duration="6726000" />
+      <workItem from="1647104191598" duration="92000" />
+      <workItem from="1647104317285" duration="156000" />
     </task>
     <task id="LOCAL-00001" summary="Add better wrapping for cache decorators">
       <created>1646504955896</created>
