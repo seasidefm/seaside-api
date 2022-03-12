@@ -64,14 +64,6 @@ def health():
     ).response_tuple()
 
 
-@app.get("/songs/last")
-def last_song():
-    return AppResult(
-        message="Last song",
-        data=service_locator.songs.last_song().to_dict()
-    ).response_tuple()
-
-
 @app.get("/superfaves")
 def superfaves_for_user():
     user = request.args.get('user_id')
