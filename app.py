@@ -64,37 +64,6 @@ def health():
     ).response_tuple()
 
 
-@app.post("/faves/superfave")
-@token_required
-@update_heat
-def new_superfave():
-    data = request.json
-
-    user_id = data.get('user_id')
-    song = data.get('song')
-    if user_id:
-        result =\
-            service_locator.superfaves.save_last(user_id) \
-            if song == "last" else \
-            service_locator.superfaves.save_song(user_id)
-
-        formatted = AppResult(
-            message="Added current song as superfave",
-        ) if result else AppError(
-            message="Already user superfave",
-            error=f"Already a superfave for {user_id}",
-            code=409
-        )
-
-        return formatted.response_tuple()
-    else:
-        return AppError(
-            message="User ID key is missing or wrong format",
-            error="`user_id` key is required to super-fave current song",
-            code=400
-        ).response_tuple()
-
-
 if __name__ == "__main__":
     print("Starting SeasideFM Beta API...")
     if os.environ.get('IS_PRODUCTION') is not None:
