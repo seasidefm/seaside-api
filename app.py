@@ -115,35 +115,6 @@ def superfaves_for_user():
     ).response_tuple()
 
 
-@app.delete("/faves")
-@token_required
-@update_heat
-def delete_fave():
-    data = request.json
-    fave_id = data.get('fave_id')
-
-    response = None
-    if fave_id:
-        result = service_locator.faves.delete_fave(fave_id)
-        if result:
-            response = AppResult(message="Favorite successfully deleted", data={
-                "data": True
-            })
-        else:
-            response = AppError(
-                message="Something went wrong deleting favorite!",
-                error="Could not delete favorite, please check ID"
-            )
-    else:
-        response = AppError(
-            message="Fave ID is missing from request body",
-            error="`fave_id` is missing or improper format",
-            code=400
-        )
-
-    return response.response_tuple()
-
-
 @app.delete("/superfaves")
 @token_required
 @update_heat
