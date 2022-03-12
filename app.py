@@ -174,35 +174,6 @@ def delete_superfave():
 
 
 
-@app.post("/faves")
-@token_required
-@update_heat
-def new_fave():
-    data = request.json
-
-    user_id = data.get('user_id')
-    song = data.get('song')
-    if user_id:
-        result =\
-            service_locator.faves.save_last(user_id)\
-            if song == "last" else\
-            service_locator.faves.save_song(user_id)
-
-        formatted = AppResult(
-            message="Added current song as favorite",
-        ) if result else AppError(
-            message="Already user favorite",
-            error=f"Already a favorite for {user_id}",
-            code=409
-        )
-
-        return formatted.response_tuple()
-    else:
-        return AppError(
-            message="User ID key is missing or wrong format",
-            error="`user_id` key is required to favorite current song",
-            code=400
-        ).response_tuple()
 
 
 @app.post("/faves/superfave")
