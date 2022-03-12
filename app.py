@@ -4,6 +4,7 @@ from sentry_sdk.integrations.flask import FlaskIntegration
 from flask import Flask, request
 from dotenv import load_dotenv
 
+from routes import blueprint
 from controllers.token import token_required
 from services.locator import Locator
 from shared.structures import AppError, AppResult
@@ -31,6 +32,12 @@ else:
 
 service_locator = Locator()
 
+# ==========================
+
+
+# Assign Routes
+# ==========================
+app.register_blueprint(blueprint)
 # ==========================
 
 
