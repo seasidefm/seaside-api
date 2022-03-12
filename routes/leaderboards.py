@@ -6,11 +6,21 @@ def leaderboard_route(route: str):
     return f"/leaderboards{route}"
 
 
-@blueprint.get(leaderboard_route('/top-songs'))
-def top_songs():
+@blueprint.get(leaderboard_route('/faves'))
+def top_faves():
     service = service_locator.leaderboard
 
     return AppResponse(
         data=service.get_fave_points(),
+        message="Current top songs"
+    ).response_tuple()
+
+
+@blueprint.get(leaderboard_route('/superfaves'))
+def top_superfaves():
+    service = service_locator.leaderboard
+
+    return AppResponse(
+        data=service.get_superfave_points(),
         message="Current top songs"
     ).response_tuple()

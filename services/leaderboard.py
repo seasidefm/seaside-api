@@ -9,3 +9,6 @@ class LeaderboardService:
 
     def get_fave_points(self):
         return list(self.fave_controller.get_fave_points())
+
+    def get_superfave_points(self):
+        return list(self.superfave_controller.get_fave_points())
