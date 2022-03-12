@@ -64,15 +64,6 @@ def health():
     ).response_tuple()
 
 
-@app.get("/superfaves")
-def superfaves_for_user():
-    user = request.args.get('user_id')
-    return AppResult(
-        message="User's superfave songs",
-        data=service_locator.superfaves.get_songs(user)
-    ).response_tuple()
-
-
 @app.delete("/superfaves")
 @token_required
 @update_heat
