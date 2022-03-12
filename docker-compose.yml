@@ -14,7 +14,8 @@ services:
     links:
       - cache
     environment:
-      IS_PRODUCTION: 1
       REDIS_HOST: cache
+    volumes:
+      - ./:/app
     env_file:
       - .env
