@@ -8,3 +8,4 @@ service_locator = Locator()
 
 from . import faves
 from . import leaderboards
+from . import songs

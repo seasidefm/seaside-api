@@ -64,32 +64,6 @@ def health():
     ).response_tuple()
 
 
-@app.post("/songs/new")
-@token_required
-@update_heat
-def new_song():
-    data = request.json
-    try:
-        if data['song']:
-            result = service_locator.songs.add_current_song(data['song'])
-            return AppResult(
-                message=f"Added {data['song']} to history",
-                data=result
-            ).response_tuple()
-        else:
-            return AppError(
-                message="Song key is missing or incorrect format",
-                error="`song` key is required!",
-                code=400
-            ).response_tuple()
-    except Exception as e:
-        return AppError(
-            message="Something went wrong",
-            error=str(e),
-            code=500
-        ).response_tuple()
-
-
 @app.get("/songs/current")
 def current_song():
     return AppResult(
