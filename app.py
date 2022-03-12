@@ -1,14 +1,12 @@
 import os
 import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
-from flask import Flask, request
+from flask import Flask
 from dotenv import load_dotenv
 
 from routes import blueprint
-from controllers.token import token_required
 from services.locator import Locator
-from shared.structures import AppError, AppResult
-from utils.heat_setter import update_heat
+from shared.structures import AppResult
 
 app = Flask(__name__)
 
@@ -37,10 +35,6 @@ service_locator = Locator()
 
 # Assign Routes
 # ==========================
-app.register_blueprint(blueprint)
-# ==========================
-
-
 @app.route("/")
 def hello_world():
     return {
@@ -62,6 +56,11 @@ def health():
         message="Health status measurements for app services",
         data=["OK"]
     ).response_tuple()
+
+
+app.register_blueprint(blueprint)
+
+# ==========================
 
 
 if __name__ == "__main__":
