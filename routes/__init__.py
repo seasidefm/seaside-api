@@ -6,6 +6,4 @@ blueprint = Blueprint('seaside-blueprint', __name__)
 
 service_locator = Locator()
 
-from . import faves
-from . import leaderboards
-from . import songs
+from . import faves, leaderboards, songs, heat

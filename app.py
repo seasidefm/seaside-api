@@ -136,14 +136,6 @@ def new_superfave():
         ).response_tuple()
 
 
-@app.get('/heat')
-def get_heat():
-    return AppResult(
-        message="Current heat level",
-        data=service_locator.heat.get_current_heat()
-    ).response_tuple()
-
-
 if __name__ == "__main__":
     print("Starting SeasideFM Beta API...")
     if os.environ.get('IS_PRODUCTION') is not None:
