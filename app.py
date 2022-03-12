@@ -64,14 +64,6 @@ def health():
     ).response_tuple()
 
 
-@app.get("/songs/current")
-def current_song():
-    return AppResult(
-        message="Current song",
-        data=service_locator.songs.current_song().to_dict()
-    ).response_tuple()
-
-
 @app.get("/songs/last")
 def last_song():
     return AppResult(

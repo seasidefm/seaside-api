@@ -38,3 +38,10 @@ def new_song():
         )
 
     return response.response_tuple()
+
+@blueprint.get("/songs/current")
+def current_song():
+    return AppResult(
+        message="Current song",
+        data=service_locator.songs.current_song().to_dict()
+    ).response_tuple()
