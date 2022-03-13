@@ -1,3 +1,5 @@
+from functools import reduce
+
 from controllers.fave import FaveController
 from controllers.superfave import SuperfaveController
 
@@ -12,3 +14,6 @@ class LeaderboardService:
 
     def get_superfave_points(self):
         return list(self.superfave_controller.get_fave_points())
+
+    def get_total_points(self):
+        return list(self.fave_controller.get_aggregate_scores())
