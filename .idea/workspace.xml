@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f9d87f1-ca10-4352-8290-e9c63af5b194" name="Changes" comment="Add logging to prod server">
+    <list default="true" id="8f9d87f1-ca10-4352-8290-e9c63af5b194" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/fave.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/fave.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/aggregates.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/aggregates.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/leaderboards.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/leaderboards.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/leaderboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/leaderboard.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,6 +61,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mongo" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -175,7 +179,8 @@
       <workItem from="1646930236484" duration="224000" />
       <workItem from="1646961349911" duration="6726000" />
       <workItem from="1647104191598" duration="92000" />
-      <workItem from="1647104317285" duration="14671000" />
+      <workItem from="1647104317285" duration="14784000" />
+      <workItem from="1647143630656" duration="4964000" />
     </task>
     <task id="LOCAL-00001" summary="Add better wrapping for cache decorators">
       <created>1646504955896</created>
@@ -212,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646785270999</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add aggregate scoring to leaderboard.py">
+      <created>1647143565411</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1647143565411</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,7 +247,8 @@
     <MESSAGE value="Add fave ingest route based on user id" />
     <MESSAGE value="Add favorite typing to migration" />
     <MESSAGE value="Add logging to prod server" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add logging to prod server" />
+    <MESSAGE value="Add aggregate scoring to leaderboard.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add aggregate scoring to leaderboard.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

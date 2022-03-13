@@ -2,7 +2,7 @@ import bson
 import pymongo
 
 from cache.cache_decorator import clear_cache, cached
-from database.aggregates import song_score_aggregate, FAVE_SCORE, all_songs_ranked
+from database.aggregates import song_score_aggregate, FAVE_SCORE, all_songs_ranked, user_fave_points
 from database.get_db import get_db
 from shared.bson_utils import bson_dumps
 from shared.types import Fave
@@ -25,6 +25,10 @@ class FaveController:
     @cached('aggregate_scores', data_formatter=bson_dumps, parse_json=True)
     def get_aggregate_scores(self):
         return self.collection.aggregate(all_songs_ranked)
+
+    @cached('user_points', data_formatter=bson_dumps, parse_json=True)
+    def get_aggregate_user_faves(self):
+        return self.collection.aggregate(user_fave_points)
 
     @clear_cache(['heat', 'fave_counts', 'aggregate_scores'])
     def add_fave(self, fave: Fave) -> bool:

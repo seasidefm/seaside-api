@@ -15,3 +15,6 @@ class LeaderboardService:
 
     def get_total_points(self):
         return list(self.fave_controller.get_aggregate_scores())
+
+    def get_user_faves(self):
+        return list(self.fave_controller.get_aggregate_user_faves())

@@ -63,3 +63,41 @@ all_songs_ranked =[
         }
     }
 ]
+
+user_fave_points = [
+    {
+        '$project': {
+            'song': '$song',
+            'user': '$user_id',
+            'points': {
+                '$literal': FAVE_SCORE
+            }
+        }
+    }, {
+        '$unionWith': {
+            'coll': 'superfaves',
+            'pipeline': [
+                {
+                    '$project': {
+                        'song': '$song',
+                        'user': '$user_id',
+                        'points': {
+                            '$literal': SUPERFAVE_SCORE
+                        }
+                    }
+                }
+            ]
+        }
+    }, {
+        '$group': {
+            '_id': '$user',
+            'voted': {
+                '$sum': '$points'
+            }
+        }
+    }, {
+        '$sort': {
+            'voted': -1
+        }
+    }
+]
