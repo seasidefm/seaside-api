@@ -1,5 +1,3 @@
-from functools import reduce
-
 from controllers.fave import FaveController
 from controllers.superfave import SuperfaveController
 
