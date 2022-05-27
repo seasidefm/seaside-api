@@ -59,7 +59,7 @@ spec:
         - name: regcred
       containers:
         - name: seaside-api
-          image: registry.dougflynn.dev/seaside-api
+          image: redbirddigital/seaside-api
           ports:
             - containerPort: 4000
           imagePullPolicy: Always
@@ -76,6 +76,11 @@ spec:
                 secretKeyRef:
                   name: api-secret
                   key: SENTRY_DSN
+            - name: MQTT_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: api-secret
+                  key: MQTT_HOST
             - name: IS_PRODUCTION
               value: '1'
             - name: REDIS_HOST
@@ -93,29 +98,3 @@ spec:
     - name: web-port
       port: 80
       targetPort: 4000
----
-kind: Ingress
-apiVersion: networking.k8s.io/v1
-metadata:
-  namespace: seasidefm
-  name: seaside-api-entrypoint
-  annotations:
-    kubernetes.io/ingress.class: traefik
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
-spec:
-  rules:
-    - host: api.seaside.fm
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: seaside-api
-                port:
-                  number: 80
-  tls:
-    - secretName: seaside-api-tls
-      hosts:
-        - api.seaside.fm
