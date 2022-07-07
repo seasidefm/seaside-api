@@ -68,7 +68,7 @@ app.register_blueprint(blueprint)
 
 port = os.environ.get('PORT') or 4000
 if __name__ == "__main__":
-    print("Starting SeasideFM Beta API...")
+    print("Starting seaside-api")
     if os.environ.get('IS_PRODUCTION') is not None:
         from waitress import serve
         import logging

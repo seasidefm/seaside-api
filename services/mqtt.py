@@ -29,7 +29,6 @@ def get_mqtt_client():
 
 class MqttService:
     def __init__(self):
-        print('Initializing MQTT service')
         self.client = get_mqtt_client()
 
     @staticmethod

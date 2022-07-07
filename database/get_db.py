@@ -25,5 +25,5 @@ def get_db(service: str):
         db = Database()
         return db.instance()
     else:
-        print(f'[{service}] Reusing existing database connection')
+        # print(f'[{service}] Reusing existing database connection')
         return db.instance()
