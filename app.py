@@ -62,7 +62,7 @@ app.register_blueprint(blueprint)
 
 # ==========================
 
-
+port = os.environ.get('PORT') or 4000
 if __name__ == "__main__":
     print("Starting SeasideFM Beta API...")
     if os.environ.get('IS_PRODUCTION') is not None:
@@ -71,6 +71,6 @@ if __name__ == "__main__":
         logger = logging.getLogger('waitress')
         logger.setLevel(logging.INFO)
 
-        serve(app=app, port=4000)
+        serve(app=app, port=port)
     else:
-        app.run(host="0.0.0.0", port=4000, debug=True)
+        app.run(host="0.0.0.0", port=port, debug=True)
