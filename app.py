@@ -2,6 +2,7 @@ import os
 import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
 from flask import Flask
+from flask_cors import CORS
 from dotenv import load_dotenv
 
 from routes import blueprint
@@ -13,7 +14,10 @@ app = Flask(__name__)
 # Setup area
 # ==========================
 
-load_dotenv()
+# Enable CORS for ALL hosts
+CORS(app)
+
+load_dotenv(verbose=True)
 sentry_dsn = os.environ.get('SENTRY_DSN')
 if sentry_dsn:
     sentry_sdk.init(
