@@ -42,6 +42,6 @@ class MqttService:
     def set_heat_level(self, message: dict):
         print('Sending heat level message')
         c = self.client
-        c.connect(os.environ['MQTT_HOST'], 5555, 60)
+        c.connect(os.environ['MQTT_HOST'], 8883, 60)
         c.publish(topic=topics['UPDATE_HEAT'], payload=json.dumps(message))
         c.disconnect()

@@ -14,8 +14,6 @@ def update_heat(func):
     def wrapper(*args, **kwargs):
         return_val = func(*args, **kwargs)
 
-        print('updating heat')
-
         def heat_setter():
             heat = heat_service.get_current_heat()
             mqtt.set_heat_level({
