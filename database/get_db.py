@@ -4,7 +4,7 @@ from pymongo import MongoClient
 
 class Database:
     def __init__(self):
-        connection_string = os.environ['MONGO_CONNECTION']
+        connection_string = os.environ.get('MONGO_CONNECTION')
         if not connection_string:
             raise EnvironmentError("MONGO_CONNECTION missing in env!")
 
