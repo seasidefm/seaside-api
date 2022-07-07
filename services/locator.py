@@ -1,6 +1,7 @@
 from services.fave import FaveService
 from services.heat import HeatService
 from services.leaderboard import LeaderboardService
+from services.request import RequestService
 from services.song import SongService
 from services.superfave import SuperFaveService
 from services.video import VideoInfoService
@@ -19,6 +20,6 @@ class Locator:
         self.faves = FaveService()
         self.superfaves = SuperFaveService()
         self.leaderboard = LeaderboardService()
+        self.requests = RequestService()
         self.songs = SongService()
         self.heat = HeatService()
-

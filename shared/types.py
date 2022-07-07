@@ -4,6 +4,32 @@ from typing import NewType
 SongRequest = NewType('SongRequest', dict)
 UserPayload = NewType('UserPayload', dict)
 
+class Request:
+    def __init__(self, user="", user_id="", artist="", song_title="", ripped=False, streamed=False, stream_date="", owned=False, timestamp=None) -> None:
+        # Legacy requests have username only
+        self.user = user
+        self.user_id = user_id
+        self.artist = artist
+        self.song_title = song_title
+        self.ripped = ripped
+        # Legacy requests have streamed = 1
+        self.streamed = streamed or streamed == 1
+        self.stream_date = datetime.fromisoformat(stream_date)
+        self.timestamp =  datetime.fromisoformat(stream_date) if timestamp else datetime.now()
+
+    def to_dict(self):
+        return {
+            "user": self.user,
+            "user_id": self.user_id,
+            "artist": self.artist,
+            "song_title": self.song_title,
+            "ripped": self.ripped,
+            "streamed": self.streamed,
+            "stream_date": self.stream_date.isoformat(),
+            "timestamp": self.timestamp.isoformat()
+        }
+
+
 
 class Fave:
     def __init__(self, user: str, song: str, date=None):
