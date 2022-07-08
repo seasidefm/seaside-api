@@ -13,6 +13,11 @@ def get_mqtt_client():
     if not os.environ.get('MQTT_HOST'):
         print('WARNING: CANNOT FIND MQTT HOST IN ENV')
 
+    mqtt_user = os.environ.get('MQTT_USER')
+    mqtt_pwd = os.environ.get('MQTT_PWD')
+    if not mqtt_user or not mqtt_pwd:
+        print('WARNING: No mqtt user or password set, defaulting to empty string!')
+
     # The callback for when the client receives a CONNACK response from the server.
     def on_connect(_, userdata, flags, rc):
         print("Seaside API is connected to to MQTT broker with code: " + str(rc))
@@ -22,6 +27,7 @@ def get_mqtt_client():
         # client.subscribe(topic)
 
     client = mqtt.Client("seaside-api", transport="tcp")
+    client.username_pw_set(mqtt_user, mqtt_pwd)
     client.on_connect = on_connect
 
     return client
