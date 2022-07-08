@@ -1,5 +1,6 @@
 import json
 import os
+import certifi
 
 import paho.mqtt.client as mqtt
 
@@ -26,9 +27,15 @@ def get_mqtt_client():
         # reconnect then subscriptions will be renewed.
         # client.subscribe(topic)
 
+    def on_fail(_):
+        print("Unable to connect to mqtt broker! Please check your user and password, as well as TLS and port")
+
     client = mqtt.Client("seaside-api", transport="tcp")
     client.username_pw_set(mqtt_user, mqtt_pwd)
+    client.tls_set(certifi.where())
+    client.tls_insecure_set(True)
     client.on_connect = on_connect
+    client.on_connect_fail = on_fail
 
     return client
 
