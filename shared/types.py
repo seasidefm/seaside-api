@@ -46,8 +46,14 @@ class Fave:
 
 
 class Song:
+    splitter = " - "
+
     def __init__(self, song: str, date=None):
-        artist, song_title = song.split(' - ')
+        # Sanitize every input, as new history inputs may contain newlines!
+        song.replace('\n', ' - ')
+
+        # Continue as usual
+        artist, song_title = song.split(Song.splitter, maxsplit=1)
         self.song = song_title
         self.artist = artist
         self.timestamp = date or datetime.now()
@@ -60,8 +66,8 @@ class Song:
         }
 
     def to_song_string(self):
-        return f"{self.artist} - {self.song}"
+        return f"{self.artist}{Song.splitter}{self.song}"
 
     @staticmethod
     def from_bson(cached: dict):
-        return Song(f"{cached.get('artist')} - {cached.get('song')}", date=cached.get('timestamp')['$date'])
+        return Song(f"{cached.get('artist')}{Song.splitter}{cached.get('song')}", date=cached.get('timestamp')['$date'])
